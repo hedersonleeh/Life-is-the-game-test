@@ -8,5 +8,7 @@ public class GunData : ScriptableObject
     public float bulletPower;
     public float bulletSpeedYMultiplier;
     public float firingRate;
+    public bool useGravity;
+    public float hookMoveDuration;
     public Bullet bulletPrefab;
 }

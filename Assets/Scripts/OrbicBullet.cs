@@ -22,11 +22,12 @@ public class OrbicBullet : Bullet
     {
         foreach (var collider in _colliders)
         {
-            if (collider.TryGetComponent<Rigidbody>(out var rb))
-            {
-                rb.useGravity = true;
-                rb.isKinematic = false;
-            }
+            if (collider != null)
+                if (collider.TryGetComponent<Rigidbody>(out var rb))
+                {
+                    rb.useGravity = true;
+                    rb.isKinematic = false;
+                }
         }
     }
 

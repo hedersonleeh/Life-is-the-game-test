@@ -34,7 +34,7 @@ public class Pool<T> where T : MonoBehaviour
 
 
         obj = _pool.Dequeue();
-
+        
         return obj;
     }
 

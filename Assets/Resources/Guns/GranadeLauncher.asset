@@ -16,4 +16,5 @@ MonoBehaviour:
   bulletPower: 10
   bulletSpeedYMultiplier: 5
   firingRate: 1
+  useGravity: 1
   bulletPrefab: {fileID: 2723031616323341773, guid: 65cb1cc66851b9f4bac11a9f53df7fe6, type: 3}

@@ -100,7 +100,7 @@ public class FpsController : MonoBehaviour
         _input.Normalize();
         var movement = _input.x * right + _input.y * forward;
         Debug.Log(movement);
-        _controller.Move(movement * _speed * Time.fixedDeltaTime);
+        _controller.Move(movement * _speed * Time.fixedDeltaTime + Physics.gravity * Time.fixedDeltaTime);
 
         if (Physics.Raycast(_camera.transform.position, _camera.transform.forward, out var hit, float.PositiveInfinity))
         {

@@ -5,14 +5,14 @@ public class Gun : MonoBehaviour
 {
     [SerializeField] private string gunId;
     [SerializeField] private MeshRenderer _renderer;
-    [SerializeField] private Transform _shootPoint;
+    [SerializeField] protected Transform _shootPoint;
     public OutlineController outline;
     protected Pool<Bullet> _pool;
     private float _fireRateTimer;
     public Vector3 shootPoint => _shootPoint.position;
     public Vector3 aimDirection => _shootPoint.forward;
     public GunData Data { get; private set; }
-    public bool CanShoot => _fireRateTimer >= Data.firingRate;
+    public virtual bool CanShoot => _fireRateTimer >= Data.firingRate;
     private void Awake()
     {
         Data = Resources.Load<GunData>("Guns/" + gunId);
@@ -30,7 +30,7 @@ public class Gun : MonoBehaviour
         if (!CanShoot)
             _fireRateTimer += Time.deltaTime;
     }
-    public virtual bool Shoot() {
+    public bool Shoot() {
         if (!CanShoot) return false;
         ShootGun();
         _fireRateTimer = 0;
@@ -42,8 +42,10 @@ public class Gun : MonoBehaviour
         bullet.gameObject.SetActive(true);
         bullet.transform.position = shootPoint;
         Vector3 initialSpeed = aimDirection.normalized * Data.bulletPower;
+        bullet.Rb.useGravity = Data.useGravity;
         bullet.Rb.velocity = initialSpeed;
         bullet.transform.forward = initialSpeed.normalized;
+        bullet.AssignPool(_pool);
     }
     public MeshRenderer GetMeshRenderer() => _renderer;
 }
