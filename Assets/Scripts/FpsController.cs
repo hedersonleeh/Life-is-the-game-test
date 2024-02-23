@@ -30,6 +30,10 @@ public class FpsController : MonoBehaviour
 
     private void Update()
     {
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene(1);
+        }    
         _input.x = Input.GetAxisRaw("Horizontal");
         _input.y = Input.GetAxisRaw("Vertical");
 

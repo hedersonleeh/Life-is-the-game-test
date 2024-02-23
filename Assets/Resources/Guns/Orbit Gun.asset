@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Orbit Gun
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: ab12fd63a4dd81747ad56b05781f5435, type: 3}
-  bulletSpeedMultiplier: 1
+  bulletPower: 15
+  bulletSpeedYMultiplier: 0
   firingRate: 1
-  bulletPrefab: {fileID: 3230960521186004279, guid: f584d9263699c7a43b4357eaa9cb0051, type: 3}
+  bulletPrefab: {fileID: 2240384669020507154, guid: 99fb87e463f1c064384f7bf4a5f7d6d5, type: 3}

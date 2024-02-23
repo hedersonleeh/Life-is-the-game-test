@@ -2,9 +2,8 @@
 
 public class ParabolicGun : Gun
 {
-    public override bool Shoot()
+    protected override void ShootGun()
     {
-        if (!CanShoot) return false;
         var bullet = _pool.Get();
         bullet.gameObject.SetActive(true);
         bullet.transform.position = shootPoint;
@@ -12,7 +11,5 @@ public class ParabolicGun : Gun
         Vector3 initialSpeed = aimDirection.normalized * Data.bulletPower + Vector3.up * Data.bulletSpeedYMultiplier;
         bullet.Rb.velocity = initialSpeed;
         bullet.transform.forward = initialSpeed.normalized;
-        _fireRateTimer = 0f;
-        return true;
     }
 }
