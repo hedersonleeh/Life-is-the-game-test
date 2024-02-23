@@ -34,7 +34,7 @@ public class Gun : MonoBehaviour
         if (!CanShoot) return false;
         ShootGun();
         _fireRateTimer = 0;
-        return false; 
+        return true; 
     }
     protected virtual void ShootGun()
     {
